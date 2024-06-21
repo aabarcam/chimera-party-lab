@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cyyi8q3a0qsui"]
+
+[ext_resource type="PackedScene" uid="uid://u68wga2b7b4l" path="res://ui_lab/settings/text_edit_dialog.tscn" id="1_x5tal"]
+[ext_resource type="Script" path="res://ui_lab/settings/description_dialog.gd" id="2_v77e3"]
+
+[node name="DescriptionDialog" instance=ExtResource("1_x5tal")]
+script = ExtResource("2_v77e3")
+
+[node name="Label" parent="VBoxContainer" index="0"]
+text = "Description"
