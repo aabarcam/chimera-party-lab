@@ -1,0 +1,196 @@
+[gd_scene load_steps=11 format=3 uid="uid://cb6lkhev175dl"]
+
+[ext_resource type="Script" path="res://games/cowboy_duel/cowboy.gd" id="1_3ymot"]
+[ext_resource type="Texture2D" uid="uid://k4ov3q1koaqn" path="res://games/cowboy_duel/assets/cowboy_test.png" id="2_w6soq"]
+[ext_resource type="PackedScene" uid="uid://cu45xq3tj18m6" path="res://games/cowboy_duel/gun.tscn" id="3_8r7wr"]
+[ext_resource type="Texture2D" uid="uid://j60nvseoyxgl" path="res://games/cowboy_duel/assets/cowboy.png" id="3_cjtrd"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1ent2"]
+size = Vector2(48, 112)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qltyq"]
+size = Vector2(104, 24)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ni6u3"]
+size = Vector2(68, 40)
+
+[sub_resource type="Animation" id="Animation_4eequ"]
+resource_name = "idle"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Colorable/Beard:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 1), Vector2i(1, 1), Vector2i(2, 1), Vector2i(3, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Colorable/Hat:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 4), Vector2i(1, 4), Vector2i(2, 4), Vector2i(3, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/FixedColor/Skin:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 2), Vector2i(1, 2), Vector2i(2, 2), Vector2i(3, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/FixedColor/Body:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [Vector2i(0, 3), Vector2i(1, 3), Vector2i(2, 3), Vector2i(3, 3)]
+}
+
+[sub_resource type="Animation" id="Animation_prt6w"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Pivot/Colorable/Beard:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 1)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Pivot/Colorable/Hat:frame_coords")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 4)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Pivot/FixedColor/Skin:frame_coords")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 2)]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Pivot/FixedColor/Body:frame_coords")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(0, 3)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_scl38"]
+_data = {
+"RESET": SubResource("Animation_prt6w"),
+"idle": SubResource("Animation_4eequ")
+}
+
+[node name="Cowboy" type="CharacterBody2D" groups=["cowboys"]]
+motion_mode = 1
+script = ExtResource("1_3ymot")
+
+[node name="Pivot" type="Node2D" parent="."]
+position = Vector2(0, -64)
+scale = Vector2(4, 4)
+
+[node name="MainBody" type="Sprite2D" parent="Pivot"]
+visible = false
+texture = ExtResource("2_w6soq")
+
+[node name="Colorable" type="Node2D" parent="Pivot"]
+
+[node name="Beard" type="Sprite2D" parent="Pivot/Colorable"]
+texture = ExtResource("3_cjtrd")
+hframes = 4
+vframes = 5
+frame = 4
+
+[node name="Hat" type="Sprite2D" parent="Pivot/Colorable"]
+texture = ExtResource("3_cjtrd")
+hframes = 4
+vframes = 5
+frame = 16
+
+[node name="FixedColor" type="Node2D" parent="Pivot"]
+
+[node name="Skin" type="Sprite2D" parent="Pivot/FixedColor"]
+texture = ExtResource("3_cjtrd")
+hframes = 4
+vframes = 5
+frame = 8
+
+[node name="Body" type="Sprite2D" parent="Pivot/FixedColor"]
+texture = ExtResource("3_cjtrd")
+hframes = 4
+vframes = 5
+frame = 12
+
+[node name="Hitbox" type="Area2D" parent="."]
+position = Vector2(0, -16)
+
+[node name="Collision" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-4, -44)
+shape = SubResource("RectangleShape2D_1ent2")
+
+[node name="Collision2" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(0, -76)
+shape = SubResource("RectangleShape2D_qltyq")
+
+[node name="Collision3" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(-10, -32)
+shape = SubResource("RectangleShape2D_ni6u3")
+
+[node name="Gun" parent="." instance=ExtResource("3_8r7wr")]
+visible = false
+position = Vector2(0, -64)
+scale = Vector2(0.215001, 0.215001)
+
+[node name="RollTime" type="Timer" parent="."]
+wait_time = 0.25
+
+[node name="RollCdTimer" type="Timer" parent="."]
+wait_time = 5.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_scl38")
+}

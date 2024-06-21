@@ -1,0 +1,25 @@
+[gd_scene load_steps=2 format=3 uid="uid://cf4h4daxq1hvd"]
+
+[ext_resource type="Script" path="res://games/cowboy_duel/ui/kill.gd" id="1_apfe3"]
+
+[node name="Kill" type="HBoxContainer"]
+offset_right = 211.0
+offset_bottom = 75.0
+script = ExtResource("1_apfe3")
+
+[node name="Killer" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 2
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 20
+text = "shot"
+
+[node name="Victim" type="ColorRect" parent="."]
+custom_minimum_size = Vector2(75, 75)
+layout_mode = 2
+
+[node name="Timer" type="Timer" parent="."]
+autostart = true

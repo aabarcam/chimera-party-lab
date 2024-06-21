@@ -1,0 +1,27 @@
+[gd_resource type="Resource" script_class="GameInfo" load_steps=7 format=3 uid="uid://baiipnb2i4b2y"]
+
+[ext_resource type="Texture2D" uid="uid://bcbnjudxibp0o" path="res://chimerin_lab/assets/chimerin.png" id="1_4iww5"]
+[ext_resource type="Script" path="res://scripts/game_input.gd" id="2_0a10q"]
+[ext_resource type="Script" path="res://scripts/game_info.gd" id="3_3v0a6"]
+
+[sub_resource type="Resource" id="Resource_l1ktx"]
+script = ExtResource("2_0a10q")
+inputs = 15
+description = "Walk"
+
+[sub_resource type="Resource" id="Resource_q4e2o"]
+script = ExtResource("2_0a10q")
+inputs = 16
+description = "Dodge"
+
+[sub_resource type="Resource" id="Resource_wrls1"]
+script = ExtResource("2_0a10q")
+inputs = 32
+description = "Aim/Shoot"
+
+[resource]
+script = ExtResource("3_3v0a6")
+name = "Cowboy duel"
+description = "This is the [shake level=20]description[/shake] of my game"
+image = ExtResource("1_4iww5")
+inputs = Array[ExtResource("2_0a10q")]([SubResource("Resource_l1ktx"), SubResource("Resource_q4e2o"), SubResource("Resource_wrls1")])
